@@ -1,0 +1,14 @@
+Different types of queues
+
+aeq
+aggqueue
+aq
+auditqueue
+fschangemanager_queue
+indexqueue
+nullqueue
+parsingqueue
+splunktcpin
+stashparsing
+tcpin_queue
+typingqueue
