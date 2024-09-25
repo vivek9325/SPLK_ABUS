@@ -1,3 +1,14 @@
 UF Installation URL - 
 
   wget -O splunkforwarder-9.3.1-0b8d769cb912-Linux-x86_64.tgz "https://download.splunk.com/products/universalforwarder/releases/9.3.1/linux/splunkforwarder-9.3.1-0b8d769cb912-Linux-x86_64.tgz"
+
+tar xvzf splunkforwarder-9.3.1-0b8d769cb912-Linux-x86_64.tgz
+cd splunkforwarder/bin
+./splunk start
+./splunk status
+./splunk stop
+ ./splunk enable boot-start
+    3  ./splunk start
+    4  ./splunk status
+    5  history
+    7  clear
