@@ -37,3 +37,7 @@ Splunk Enterprise URL ----
    19  ./splunk start
    20  ./splunk status
    21  history
+
+HEC Token ----
+
+curl -k https://3.19.62.189:8088/services/collector -H "Authorization:Splunk 3c543fa5-0831-4a3b-873e-b048b1c3ce9f" -d "{\"sourcetype\":\"trail\", \"event\":\"hello world\"}"
