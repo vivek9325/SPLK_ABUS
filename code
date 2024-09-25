@@ -41,3 +41,12 @@ Splunk Enterprise URL ----
 HEC Token ----
 
 curl -k https://3.19.62.189:8088/services/collector -H "Authorization:Splunk 3c543fa5-0831-4a3b-873e-b048b1c3ce9f" -d "{\"sourcetype\":\"trail\", \"event\":\"hello world\"}"
+
+Acks -----
+
+curl -k https://3.19.62.189:8088/services/collector?channel=498fba4b-433a-418f-8c35-a788724a316f -H "Authorization:Splunk 2026695d-58e2-4c7f-80e8-476f249a01b2" -d "{\"sourcetype\":\"trail\", \"event\":\"hello wor00lhjjd\"}"
+
+Validate Acks ----
+
+curl -k https://3.19.62.189:8088/services/collector/ack?channel=498fba4b-433a-418f-8c35-a788724a316f -H "Authorization:Splunk 2026695d-58e2-4c7f-80e8-476f249a01b2" -d "{\"acks\":[1]}"
+
