@@ -50,3 +50,10 @@ Validate Acks ----
 
 curl -k https://3.19.62.189:8088/services/collector/ack?channel=498fba4b-433a-418f-8c35-a788724a316f -H "Authorization:Splunk 2026695d-58e2-4c7f-80e8-476f249a01b2" -d "{\"acks\":[1]}"
 
+
+Servicenow Portal URL -----
+
+Your instance URL:https://dev281094.service-now.com
+
+Username: admin
+Current password: Hh!7R7Bg-pZx
