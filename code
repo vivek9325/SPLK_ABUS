@@ -62,3 +62,8 @@ Deployment Server Conf ----
 
 On UF to conenct with DS ---- cd splunkforwarder/bin ----->  ./splunk set deploy-poll https://13.233.112.213:8089  [IndexerIp:ManagementPort(8089)]
 
+Reload serverclass --------
+
+[ec2-user@ip-172-31-39-160 bin]$ ./splunk reload deploy-server
+
+[ec2-user@ip-172-31-39-160 bin]$ ./splunk reload deploy-server -serverclass vk_sc1
