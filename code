@@ -90,3 +90,7 @@ SH Config ----
  ./splunk init shcluster-config -auth admin:admin@123 -mgmt_uri https://13.235.247.174:8089 -replication_port 9000 -replication_factor 3 -conf_deploy_fetch_url https://13.233.112.213:8089 -secret admin@123 -shcluster_label shcluster1
 
 Needd to run in bin folder
+
+Captain election ----
+
+./splunk bootstrap shcluster-captain -servers_list "https://13.127.84.80:8089, https://13.235.243.214:8089, https://13.235.247.174:8089" -auth admin:admin@123
