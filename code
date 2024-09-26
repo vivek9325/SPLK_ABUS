@@ -94,3 +94,6 @@ Needd to run in bin folder
 Captain election ----
 
 ./splunk bootstrap shcluster-captain -servers_list "https://13.127.84.80:8089, https://13.235.243.214:8089, https://13.235.247.174:8089" -auth admin:admin@123
+
+
+./splunk show shcluster-status
