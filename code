@@ -81,3 +81,12 @@ Rolling restart
 
 ./splunk rolling-restart cluster-peers -restart-percentage 25
 ./splunk rolling-restart cluster-peers
+
+
+Deployer & SH ------
+
+SH Config ----
+
+ ./splunk init shcluster-config -auth admin:admin@123 -mgmt_uri https://13.235.247.174:8089 -replication_port 9000 -replication_factor 3 -conf_deploy_fetch_url https://13.233.112.213:8089 -secret admin@123 -shcluster_label shcluster1
+
+Needd to run in bin folder
