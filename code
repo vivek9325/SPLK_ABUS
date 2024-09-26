@@ -73,3 +73,7 @@ Cluster Master ------
 
  31  ./splunk apply cluster-bundle
    32  ./splunk show cluster-bundle-status
+
+
+ ./splunk apply cluster-bundle -app dummy_app
+
