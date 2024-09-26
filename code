@@ -57,3 +57,8 @@ Your instance URL:https://dev281094.service-now.com
 
 Username: admin
 Current password: Hh!7R7Bg-pZx
+
+Deployment Server Conf ----
+
+On UF to conenct with DS ---- cd splunkforwarder/bin ----->  ./splunk set deploy-poll https://13.233.112.213:8089  [IndexerIp:ManagementPort(8089)]
+
