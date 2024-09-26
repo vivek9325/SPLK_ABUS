@@ -77,3 +77,7 @@ Cluster Master ------
 
  ./splunk apply cluster-bundle -app dummy_app
 
+Rolling restart
+
+./splunk rolling-restart cluster-peers -restart-percentage 25
+./splunk rolling-restart cluster-peers
