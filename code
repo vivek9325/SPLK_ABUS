@@ -67,3 +67,9 @@ Reload serverclass --------
 [ec2-user@ip-172-31-39-160 bin]$ ./splunk reload deploy-server
 
 [ec2-user@ip-172-31-39-160 bin]$ ./splunk reload deploy-server -serverclass vk_sc1
+
+
+Cluster Master ------
+
+ 31  ./splunk apply cluster-bundle
+   32  ./splunk show cluster-bundle-status
