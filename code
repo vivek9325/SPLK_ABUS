@@ -97,3 +97,30 @@ Captain election ----
 
 
 ./splunk show shcluster-status
+
+
+Index time extraction ---------------
+
+Location - splunk/etc/system/local
+
+
+props.conf 
+
+[vk_sc]
+SHOULD_LINEMERGE=false
+LINE_BREAKER=([\r\n]*)<messages>
+NO_BINARY_CHECK=true
+category = Custom
+BREAK_ONLY_BEFORE=<messages>
+MUST_BREAK_AFTER=</messages>
+TRANSFORMS-demoExtraction = xmlExtraction
+
+
+transforms.conf
+
+
+[xmlExtraction]
+REGEX = <level>(?P<level>.*)<\/level><thread>(?P<thread>.*)<\/thread><location>(?P<location>.*)<\/location>
+FORMAT = level::$1 thread::$2 location::$3
+WRITE_META = true
+
