@@ -151,3 +151,16 @@ REGEX = success
 DEST_KEY = _TCP_ROUTING
 FORMAT = successGroup
 
+inputs.conf
+
+
+[monitor:///tmp/test.txt]
+sourcetype=test
+disabled=0
+
+
+test.txt
+
+2024-09-27T12:44:59+0000 [CRITICAL] [jre_validator.py], line 86 : FileNotFoundError: [Errno 2] error
+2024-09-27 12:45:40,797 INFO    [66f6a8f4c37a71786f3940] startup:63 - success retrieved serverInfo from splunkd
+
