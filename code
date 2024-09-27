@@ -128,3 +128,26 @@ Summary Index -----
 
 index=vk_idx | stats count by severity | collect index=vk_idx_summary testmode=false marker="search_string=sev_data"
 
+ROUTING -----
+
+
+ubuntu@ip-172-31-41-90:~/splunk/etc/system/local$ cat outputs.conf
+[tcpout:errorGroup]
+server = 52.66.198.224:9997
+
+[tcpout:successGroup]
+server = 13.201.55.246:9997
+ubuntu@ip-172-31-41-90:~/splunk/etc/system/local$ cat props.conf
+[test]
+TRANSFORMS-routing = errorRouting,successRouting
+ubuntu@ip-172-31-41-90:~/splunk/etc/system/local$ cat transforms.conf
+[errorRouting]
+REGEX = error
+DEST_KEY = _TCP_ROUTING
+FORMAT = errorGroup
+
+[successRouting]
+REGEX = success
+DEST_KEY = _TCP_ROUTING
+FORMAT = successGroup
+
