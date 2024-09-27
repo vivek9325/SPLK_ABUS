@@ -124,3 +124,7 @@ REGEX = <level>(?P<level>.*)<\/level><thread>(?P<thread>.*)<\/thread><location>(
 FORMAT = level::$1 thread::$2 location::$3
 WRITE_META = true
 
+Summary Index -----
+
+index=vk_idx | stats count by severity | collect index=vk_idx_summary testmode=false marker="search_string=sev_data"
+
