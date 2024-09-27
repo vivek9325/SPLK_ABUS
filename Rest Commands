@@ -1,0 +1,95 @@
+In Splunk, you can make REST API calls to retrieve various types of data such as search jobs, index statuses, or configuration settings. You can use the | rest search command to interact with the Splunk REST API directly from the Splunk search bar. This can be helpful for retrieving information about Splunk itself, such as configuration details, logs, or search history.
+
+Basic Syntax:
+spl
+| rest /services/<endpoint>
+Where <endpoint> is the specific REST API path you want to query.
+
+Common Use Cases for REST API Queries in Splunk:
+1. Query Saved Searches
+To retrieve a list of saved searches in your Splunk instance, you can query the /services/saved/searches endpoint:
+
+spl
+| rest /services/saved/searches
+| table title, disabled, search, cron_schedule
+This query retrieves saved searches and displays their titles, whether they are disabled, the search string, and their cron schedule.
+
+2. Check Search Jobs
+To view the status of currently running and completed search jobs, you can query the /services/search/jobs endpoint:
+
+spl
+| rest /services/search/jobs
+| table sid, label, dispatchState, runDuration, eventCount, resultCount
+This query retrieves search job information, such as the search ID (sid), label, dispatch state, run duration, and the count of events and results.
+
+3. Get Indexes and Their Sizes
+To retrieve information about indexes and their current sizes, you can query the /services/data/indexes endpoint:
+
+spl
+| rest /services/data/indexes
+| table title, totalEventCount, currentDBSizeMB, maxTotalDataSizeMB
+This query shows the index names (title), the total event count, the current database size (in MB), and the maximum allowed size for each index.
+
+4. Get App Information
+You can query for details about installed apps in your Splunk environment using the /services/apps/local endpoint:
+
+spl
+| rest /services/apps/local
+| table label, version, author, disabled
+This query retrieves the app name (label), version, author, and whether the app is disabled.
+
+5. Retrieve Search Head Cluster Information
+If you're working with a search head cluster, you can get information about the search head cluster members:
+
+spl
+| rest /services/search/distributed/peers
+| table peerName, status, splunk_version
+This query provides the peer name, status (active, down), and the Splunk version of each search head cluster member.
+
+6. Query Configuration Settings
+To retrieve general settings for Splunk, such as the server name, you can query the /services/server/info endpoint:
+
+spl
+| rest /services/server/info
+| table serverName, version, os_name, os_version
+This query retrieves the server name, version of Splunk, and the operating system information.
+
+7. Check License Usage
+To monitor license usage, you can query the /services/licenser/pools endpoint:
+
+spl
+| rest /services/licenser/pools
+| table title, quota, used_bytes, available_bytes
+This query returns information about the license pools, including the title, quota, used bytes, and available bytes.
+
+Example: Create a More Detailed Query
+Let's say you want to get information about the status of the running search jobs along with the search string. You can do this by querying the /services/search/jobs endpoint:
+
+spl
+| rest /services/search/jobs
+| table sid, label, dispatchState, runDuration, eventCount, resultCount, search
+| where dispatchState != "DONE"
+In this query:
+
+sid: The search ID.
+dispatchState: The current state of the search job (e.g., RUNNING, DONE).
+runDuration: The duration for which the job has been running.
+eventCount: Number of events found.
+resultCount: Number of results returned.
+This will show you the running searches that are not yet completed.
+
+Filtering REST Query Results
+You can apply filters to your REST API calls by using the where or search commands. For instance, if you want to filter out disabled saved searches, you can do:
+
+spl
+| rest /services/saved/searches
+| search disabled=0
+| table title, search, cron_schedule
+This query will return only the enabled saved searches.
+
+Benefits of Using REST API Queries in Splunk:
+Monitor system health: You can monitor the health of your Splunk instance by querying internal services.
+Audit search jobs: Keep track of running, completed, or failed search jobs.
+Access configuration settings: Retrieve and manage Splunk configurations, settings, and user information.
+Conclusion:
+The | rest command in Splunk is a powerful tool for querying the internal REST API and extracting valuable system, search, and configuration information from your Splunk environment.
